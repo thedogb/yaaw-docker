@@ -13,13 +13,20 @@
 ## 使用
 1. 在Linux x64系统上[安装Docker](https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/)
 2. 拉取本项目仓库
-> `git clone https://github.com/thedogb/yaaw-docker.git`
+```bash
+git clone https://github.com/thedogb/yaaw-docker.git
+```
 3. 构建镜像
-> `cd aria2-docker && docker build -t aria2 .`
+```bash
+cd yaaw-docker 
+docker build -t aria2 .
+```
 4. 启动容器
-> `docker run -d --name aria2 -e user=admin -e pass=admin123 -p 8080:80 -p 6800:6800 -v /downloads:/data/aria2/download aria2`
+```bash
+docker run -d --name aria2 -e user=admin -e pass=admin123 -p 8080:80 -p 6800:6800 -v /downloads:/data/aria2/download aria2
+```
 5. 浏览器打开`http://[服务器域名或IP]`，在YAAW的设置里把`JSON-RPC Path`改为`http://user:pass@服务器域名或IP:6800/jsonrpc`即可使用YAAW管理Aria2
-6. 浏览器打开`http://[服务器域名或IP]/download`即可查看、管理下载的文件
+6. 浏览器打开`http://[服务器域名或IP]/admin/files/download/`即可查看、管理下载的文件
 
 ## 参数释义
 * `--name aria2`: 容器的名字，可省略
@@ -32,6 +39,3 @@
 ## 参考项目
 * [Aria2-Docker](https://github.com/zyfworks/aria2-docker) 另一个yaaw的docker项目，但是其中有一个下载链接是私有的，无法直接使用
 * [LACY](https://github.com/helloxz/aria2) 一个aria2+yaaw+caddy的一键安装脚本
-
-
-

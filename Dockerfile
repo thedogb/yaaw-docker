@@ -11,7 +11,7 @@ RUN apt-get -y install curl aria2 apt-utils unzip wget iptables
 
 # prepare
 RUN mkdir -p /data/aria2 \
-    && mkdir -p /download \
+    && mkdir -p /data/aria2/download \
     && touch /data/aria2/aria2.session
 
 COPY aria2.conf /data/aria2
